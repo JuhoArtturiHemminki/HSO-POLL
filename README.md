@@ -1,6 +1,6 @@
 # HSO-POLL: SUB-LANDAUER REVERSIBLE PHOTONIC INTERFERENCE COMPUTING IN ISOTOPICALLY PURIFIED SILICON-28 LATTICES
 
-**Author:** Juho Artturi hemminki
+**Author:** Juho Artturi Hemminki
 **Date:** September 25, 2026  
 **License:** Apache License 2.0
 
