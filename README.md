@@ -16,21 +16,21 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use 
 
 Traditional electronic computing is fundamentally bound by the **Landauer Limit**, which dictates that the erasure or irreversible transformation of a single bit of information must dissipate a minimum energy quantum into the environment:
 
-\[E_{\text{bit}} = k_B T \ln 2\]
+$\[E_{\text{bit}} = k_B T \ln 2\]$
 
 In modern high-performance CMOS architectures, silicon scaling limits are reached not only due to quantum tunneling but because the local dissipation density leads to destructive thermal runaway. 
 
 The **HSO-POLL (Hemminki Spectral Ontology - Plasmonic Optical Logic Lattice)** architecture fundamentally bypasses the Landauer erasure penalty by replacing charge-carrying electrons with non-interacting photons and implementing **strictly reversible passive optical interference logic**. Photons lack electric charge, completely eliminating electrical resistance and conventional Coulombic friction. 
 
-Because the logical gates are designed to preserve information entirety without destroying bits (Reversible Computing), the local entropy production within the computing core approaches a theoretical limit of zero (\(\nabla \cdot \mathbf{S} \to 0\)). This shifts the mandatory thermodynamic cost exclusively to the coherent light generation phase at the input and the final optical reading event at the output interfaces.
+Because the logical gates are designed to preserve information entirety without destroying bits (Reversible Computing), the local entropy production within the computing core approaches a theoretical limit of zero $\(\nabla \cdot \mathbf{S} \to 0\)$. This shifts the mandatory thermodynamic cost exclusively to the coherent light generation phase at the input and the final optical reading event at the output interfaces.
 
 ---
 
 ## 3. CORE PHYSICAL ARCHITECTURE & ISOTOPIC MATRIX
 
-The processing medium comprises an **isotopically purified Silicon-28 (\(^{29}\text{Si} < 0.005\%\)) single-crystal matrix**. Natural silicon consists of a mixture of isotopes (\(^{28}\text{Si}\), \(^{29}\text{Si}\), and \(^{30}\text{Si}\)). The presence of \(^{29}\text{Si}\) introduces an uncompensated nuclear spin (\(I = 1/2\)), which induces hyperfine magnetic interactions and localized structural anomalies. These anomalies act as scattering centers for propagating optical wave-fronts. 
+The processing medium comprises an **isotopically purified Silicon-28 $(\(^{29}\text{Si}) < 0.005\%\))$ single-crystal matrix**. Natural silicon consists of a mixture of isotopes $\(^{28}\text{Si}\)$, $\(^{29}\text{Si}\)$, and $\(^{30}\text{Si}\))$. The presence of $\(^{29}\text{Si}\)$ introduces an uncompensated nuclear spin $\(I = 1/2\)$, which induces hyperfine magnetic interactions and localized structural anomalies. These anomalies act as scattering centers for propagating optical wave-fronts. 
 
-By purifying the substrate to an absolute \(^{28}\text{Si}\) baseline, the structural matrix becomes spin-free, presenting a spatially homogeneous dielectric medium that acts as a near-perfect optical waveguide.
+By purifying the substrate to an absolute $\(^{28}\text{Si}\)$ baseline, the structural matrix becomes spin-free, presenting a spatially homogeneous dielectric medium that acts as a near-perfect optical waveguide.
 
 ```mermaid
 graph TD
@@ -75,27 +75,33 @@ To isolate the propagating photons from ambient thermal lattice excitations (aco
 
 ## 4. MATHEMATICAL FOUNDATIONS: THE TOPOLOGICAL INVARIANT
 
-To prevent spatial phase decoherence, the physical geometry of the optical channels must follow strict topological constraints. We define the **Hemminki Topological Invariant (\(H_c\))** as a descriptor of the geometric phase factor required to maintain zero back-scattering in the presence of micro-strains.
+To prevent spatial phase decoherence, the physical geometry of the optical channels must follow strict topological constraints. We define the **Hemminki Topological Invariant $\(H_c\)$** as a descriptor of the geometric phase factor required to maintain zero back-scattering in the presence of micro-strains.
 
-\[H_c \equiv \frac{\pi \cdot \vert{}\mathbf{a}\vert{}}{\Phi} \cdot \beta\]
+$\[H_c \equiv \frac{\pi \cdot \vert{}\mathbf{a}\vert{}}{\Phi} \cdot \beta\]$
 
 Where:
-*   \(\vert{}\mathbf{a}\vert{}\) represents the fundamental unit cell vector length of the \(^{28}\text{Si}\) lattice.
-*   \(\Phi\) is the golden ratio (\(\approx 1.6180339887\)), dictating the aperiodic Fibonacci-spacing of the dielectric boundary walls.
-*   \(\beta\) is the metric tensor correction factor that scales the geometric phase as a function of the refractive index tensor variance.
+*   $\(\vert{}\mathbf{a}\vert{}\)$ represents the fundamental unit cell vector length of the $\(^{28}\text{Si}\)$ lattice.
+*   $\(\Phi\)$ is the golden ratio $\(\approx 1.6180339887\)$, dictating the aperiodic Fibonacci-spacing of the dielectric boundary walls.
+*   $\(\beta\)$ is the metric tensor correction factor that scales the geometric phase as a function of the refractive index tensor variance.
 
-By structural alignment to this metric, the system establishes an **Irrational \(\Phi\)-Glide Mode**. The aperiodic boundary conditions ensure that any random acoustic noise generated by the substrate undergoes destructive self-interference, neutralizing thermal dissipation before it can disrupt the computation phase slots.
+By structural alignment to this metric, the system establishes an **Irrational $\(\Phi\)$-Glide Mode**. The aperiodic boundary conditions ensure that any random acoustic noise generated by the substrate undergoes destructive self-interference, neutralizing thermal dissipation before it can disrupt the computation phase slots.
 
 ---
 
 ## 5. PASSIVE REVERSIBLE INTERFERENCE LOGIC & CORE ARCHITECTURE
 
 ### Reversible Logic Subsystems
-Logic execution in the HSO-POLL framework is entirely passive, relying on the spatial and temporal interference of coherent light fields within spatial bins termed **Chronos Coordinates** (\(X, Y, \omega, t\)). Instead of relying on traditional transistors that switch logic states via charge barriers, information states are maintained by phase-matched routing matrices.
+Logic execution in the HSO-POLL framework is entirely passive, relying on the spatial and temporal interference of coherent light fields within spatial bins termed **Chronos Coordinates** $\(X, Y, \omega, t\)$. Instead of relying on traditional transistors that switch logic states via charge barriers, information states are maintained by phase-matched routing matrices.
 
-The foundational block relies on the **Fredkin (Controlled-Swap) Gate**. This optical layout takes three inputs (\(A, B, C\)) and maps them to three outputs (\(A', B', C'\)). The control line \(A\) dictates whether \(B\) and \(C\) are swapped without absorbing photons:
+The foundational block relies on the **Fredkin (Controlled-Swap) Gate**. This optical layout takes three inputs $\(A, B, C\)$ and maps them to three outputs $\(A', B', C'\)$. The control line $\(A\)$ dictates whether $\(B\)$ and $\(C\)$ are swapped without absorbing photons:
 
-\[\begin{aligned} A' &= A \\ B' &= (\neg A \wedge B) \vee (A \wedge C) \\ C' &= (A \wedge B) \vee (\neg A \wedge C) \end{aligned}\]
+$$
+\begin{array}{lcl}
+A' & = & A \\
+B' & = & (\neg A \wedge B) \vee (A \wedge C) \\
+C' & = & (A \wedge B) \vee (\neg A \wedge C)
+\end{array}
+$$
 
 Because the mapping between input and output combinations is bi-directional and perfectly unique, the physical entropy change within the gate array is mathematically zero. The system preserves the total photon count across all logic execution steps.
 
@@ -108,11 +114,11 @@ graph LR
     Crossing --> C_Out[Output C' Swapped if A=1]
 ```
 
-*   **Destructive Interference (\(\Delta\phi = \pi\)):** Incoming wavefronts perfectly cancel each other out at the primary target waveguide, redirecting the preserved field intensity into a complementary un-erased path (Logical State 0).
-*   **Constructive Interference (\(\Delta\phi = 0\)):** Wavefronts align in phase, yielding an amplified power peak at the designated signal destination (Logical State 1).
+*   **Destructive Interference $\(\Delta\phi = \pi\)$:** Incoming wavefronts perfectly cancel each other out at the primary target waveguide, redirecting the preserved field intensity into a complementary un-erased path (Logical State 0).
+*   **Constructive Interference $\(\Delta\phi = 0\)$:** Wavefronts align in phase, yielding an amplified power peak at the designated signal destination (Logical State 1).
 
 ### Optical Path Delay Matching (Chronos Alignment)
-To enforce determinism, all optical paths inside the silicon-28 crystal are calculated down to sub-nanometer tolerances. Differences in propagation velocity due to local changes in waveguide curvature are offset by structural adjustments using the **Irrational \(\Phi\)-Glide Mode**. This alignment guarantees that pulse packets traversing separate paths hit the interference junction within a sub-femtosecond window (\(t_{\text{sync}} < 0.1\text{ fs}\)), preventing state mixing.
+To enforce determinism, all optical paths inside the silicon-28 crystal are calculated down to sub-nanometer tolerances. Differences in propagation velocity due to local changes in waveguide curvature are offset by structural adjustments using the **Irrational $\(\Phi\)$-Glide Mode**. This alignment guarantees that pulse packets traversing separate paths hit the interference junction within a sub-femtosecond window $\(t_{\text{sync}} < 0.1\text{ fs}\)$, preventing state mixing.
 
 ---
 
@@ -312,8 +318,8 @@ fn main() {
 
 When simulated within real physical constraints, the thermodynamic model scales consistently:
 
-1. **Sub-Landauer Operation:** Under the ideal 1.0 THz coherent control field, the system achieves a phase coherence index of \(0.9984\). The measured actual dissipation falls to \(7.340 \times 10^{-26}\text{ J}\), operating below the conventional erasure limits due to the conservation of state transitions.
-2. **Frequency Sensitivity:** A 4% shift in the control frequency comb (\(1.04\text{ THz}\)) degrades the aperiodic isolation factor. The resulting phase degradation increases dissipation toward the \(10^{-22}\text{ J}\) threshold, engaging the chromatic dampening paths to absorb runaway acoustic phonons.
+1. **Sub-Landauer Operation:** Under the ideal 1.0 THz coherent control field, the system achieves a phase coherence index of $\(0.9984\)$. The measured actual dissipation falls to $\(7.340 \times 10^{-26}\text{ J}\)$, operating below the conventional erasure limits due to the conservation of state transitions.
+2. **Frequency Sensitivity:** A 4% shift in the control frequency comb $\(1.04\text{ THz}\)$ degrades the aperiodic isolation factor. The resulting phase degradation increases dissipation toward the $\(10^{-22}\text{ J}\)$ threshold, engaging the chromatic dampening paths to absorb runaway acoustic phonons.
 3. **Entropy Balance Integration:** Local energy reductions within the processing waveguides do not imply a closed-system violation of the Second Law of Thermodynamics. The local optimization is driven by the work injected externally to maintain the 1 THz coherent control comb field, preserving standard macroscopic conservation bounds.
 
 ---
